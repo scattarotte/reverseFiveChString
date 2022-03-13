@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="frase" id="stringa">
+    <h2 id="frase"></h2>
+
+    <script>
+
+        let frase = '';
+        const input = document.getElementById('stringa');
+        const risultato = document.getElementById('frase');
+
+        function reverseString(s){
+            let arr = s.split(' ');
+            for(let i in arr){
+                if((arr[i].length) < 5){
+                    frase += ' ' + arr[i] + ' '; 
+                }
+                else{
+                    frase += ' ';
+                    let stringa = arr[i];
+                    for(let k = 0; k < (stringa.length); k++){
+                        frase += stringa[(stringa.length - 1) - k];
+                    };
+                };
+            };
+            risultato.innerHTML = frase;
+        };
+        
+        input.addEventListener('keyup', () => { reverseString(input.value)});
+        input.addEventListener('keyup', () => {frase = ''});       
+
+    </script>
+
+</body>
+</html>
